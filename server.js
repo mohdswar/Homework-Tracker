@@ -58,7 +58,7 @@ app.use(isSignedIn);
 app.get('/users/:userId/homeworks', homeworksCtrl.home)
 app.get('/users/:userId/homeworks/new', homeworksCtrl.newHomework)
 app.post('/users/:userId/homeworks', homeworksCtrl.createHomework)
-
+app.get('/users/:userId/homeworks/:homeworkId', homeworksCtrl.showHomework)
 
 
 

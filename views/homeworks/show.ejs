@@ -1,0 +1,26 @@
+<%- include('../partials/head') %>
+    <div class="container mt-4">
+        <div class="card mx-auto shadow-lg" style="max-width: 800px;">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                class="card-img-top" alt="homework photo" style="max-height: 400px; object-fit: cover;">
+            <div class="card-body">
+                <h4 class="card-title text-primary fw-bold">
+                    <%= homework.courseCode %>
+                </h4>
+
+
+                <p class="card-text">Due Date: <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
+                </p>
+                <p class="card-text">Additional notes: <%= homework.notes %>
+                </p>
+
+                <p class="card-text">Is it done?:
+                    <%= homework.completed ? "✅" : "❌" %>
+                </p>
+                <p class="text-muted">Listed by: <%= owner.username || 'Unknown' %>
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer') %>

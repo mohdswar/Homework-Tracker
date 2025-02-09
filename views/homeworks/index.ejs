@@ -1,8 +1,35 @@
 <%- include('../partials/head') %>
+    <div class="container">
+        <h1>welcome to Home works</h1>
+        <a href="/users/<%= user._id %>/homeworks/new" class="btn btn-primary mb-3">
+            Add New Homework
+        </a>
+        <ul class="list-group w-50">
+            <% homeworks.forEach(homework=> { %>
 
-    <h1>welcome to Home works</h1>
-    <a href="/users/<%= user._id %>/homeworks/new" class="btn btn-primary mb-3">
-        Add New Homework
-    </a>
+                <a href="/users/<%= user._id %>/homeworks/<%= homework._id %>" class="card-link">Show
+                    more</a>
 
+                <li class="list-group-item">
+                    <strong>Course Code</strong>
+                    <%= homework.courseCode %>
+                </li>
+                <li class="list-group-item">
+                    <strong>Expiry Date:</strong>
+                    <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
+                </li>
+
+                <li class="list-group-item">
+                    <strong>additional notes</strong>
+                    <%= homework.notes %>
+                </li>
+
+                <li class="list-group-item">
+                    <strong>Mark as Done:</strong>
+                    <%= homework.completed ? "Yes" : " No" %>
+                </li>
+                <% }) %>
+        </ul>
+
+    </div>
     <%- include('../partials/footer') %>

@@ -1,13 +1,17 @@
 const mongoose = require('mongoose')
 
 const homeworkSchema = new mongoose.Schema({
-    title: {
+    courseCode: {
         type: String,
         required: true,
     },
     dueDate: {
         type: Date,
         required: true,
+    },
+    notes: {
+        type: String,
+        required: false,
     },
     completed: {
         type: Boolean,
@@ -18,7 +22,7 @@ const homeworkSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
 
 
@@ -33,7 +37,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     homeworks: [homeworkSchema]
-}, {timestamps: true})
+}, { timestamps: true })
 
 const User = mongoose.model('User', userSchema)
 
