@@ -1,7 +1,7 @@
 <%- include('../partials/head') %>
     <div class="container">
         <h1>edit a Home Work </h1>
-        <form action="/users/<%= user._id %>/<%= homework._id %>?_method=PUT" method="POST">
+        <form action="/users/<%= user._id %>/homeworks/<%= homework._id %>%>?_method=PUT" method="POST">
 
             <label for="courseCode">Course Code:</label>
             <input type="text" name="courseCode" required value="<%=homework.courseCode  %>">
@@ -11,8 +11,12 @@
                 value="<%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>">
             <label for="notes">Additional notes</label>
             <input type="text" name="notes" value="<%=homework.notes %>">
-            <label for="completed">completed:</label>
+
+            <label for="completed">Completed:</label>
             <input type="checkbox" name="completed" value="true" <%=homework.completed ? 'checked' : '' %>>
+            <input type="hidden" name="completed" value="false">
+
+
             <button type="submit" class="btn btn-primary">edit this home work</button>
         </form>
     </div>

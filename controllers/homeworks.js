@@ -60,6 +60,20 @@ const editHomework = async (req, res) => {
     }
 }
 
+const updateHomework = async (req, res) => {
+
+    try {
+        const user = await User.findById(req.params.userId);
+        const homework = user.homeworks.id(req.params.homeworkId);
+        homework.set(req.body);
+        await user.save();
+        res.redirect(`/users/${req.params.userId}/homeworks/${req.params.homeworkId}`);
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+}
+
 
 module.exports = {
     home,
@@ -68,4 +82,5 @@ module.exports = {
     showHomework,
     deleteHomework,
     editHomework,
+    updateHomework,
 }

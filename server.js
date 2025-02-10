@@ -65,7 +65,7 @@ app.post('/users/:userId/homeworks', homeworksCtrl.createHomework)
 app.get('/users/:userId/homeworks/:homeworkId', homeworksCtrl.showHomework)
 app.delete('/users/:userId/homeworks/:homeworkId', homeworksCtrl.deleteHomework)
 app.get('/users/:userId/homeworks/:homeworkId/edit', homeworksCtrl.editHomework);
-
+app.put('/users/:userId/homeworks/:homeworkId', homeworksCtrl.updateHomework);
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}`)
 })
