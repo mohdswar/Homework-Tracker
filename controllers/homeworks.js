@@ -37,10 +37,35 @@ const showHomework = async (req, res) => {
     }
 }
 
+const deleteHomework = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId);
+        user.homeworks.id(req.params.homeworkId).deleteOne();
+        await user.save();
+        res.redirect(`/users/${req.params.userId}/homeworks`);
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+}
+
+const editHomework = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId);
+        const homework = user.homeworks.id(req.params.homeworkId);
+        res.render('homeworks/edit.ejs', { title: 'My App', homework })
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+}
+
 
 module.exports = {
     home,
     newHomework,
     createHomework,
     showHomework,
+    deleteHomework,
+    editHomework,
 }

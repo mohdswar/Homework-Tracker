@@ -21,6 +21,7 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}`)
 })
 
+
 // MIDDLEWARE
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }))
@@ -47,6 +48,9 @@ const pagesCtrl = require('./controllers/pages')
 const authCtrl = require('./controllers/auth')
 const homeworksCtrl = require('./controllers/homeworks')
 
+
+
+
 // ROUTE HANDLERS
 app.get('/', pagesCtrl.home)
 app.get('/auth/sign-up', authCtrl.signUp)
@@ -59,8 +63,8 @@ app.get('/users/:userId/homeworks', homeworksCtrl.home)
 app.get('/users/:userId/homeworks/new', homeworksCtrl.newHomework)
 app.post('/users/:userId/homeworks', homeworksCtrl.createHomework)
 app.get('/users/:userId/homeworks/:homeworkId', homeworksCtrl.showHomework)
-
-
+app.delete('/users/:userId/homeworks/:homeworkId', homeworksCtrl.deleteHomework)
+app.get('/users/:userId/homeworks/:homeworkId/edit', homeworksCtrl.editHomework);
 
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}`)

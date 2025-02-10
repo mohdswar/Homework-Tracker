@@ -15,10 +15,29 @@
                 </p>
 
                 <p class="card-text">Is it done?:
-                    <%= homework.completed ? "✅" : "❌" %>
+                    <%= homework.completed ? "✅ Completed" : "❌" %>
                 </p>
                 <p class="text-muted">Listed by: <%= owner.username || 'Unknown' %>
                 </p>
+
+
+
+
+
+
+
+                <div class="d-flex gap-2 mb-3">
+                    <a href="/users/<%= user._id %>/homeworks" class="btn btn-outline-primary">Back to homeworks</a>
+                    <% if (homework.user._id.equals(user._id)) { %>
+                        <form action="/users/<%= user._id %>/homeworks/<%= homework._id %>?_method=DELETE" method="POST"
+                            class="d-inline">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        <a href="/users/<%= user._id %>/homeworks/<%= homework._id %>/edit"
+                            class="btn btn-warning">Edit</a>
+                        <% } %>
+                </div>
+
 
             </div>
         </div>
