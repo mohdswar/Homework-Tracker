@@ -1,8 +1,8 @@
 body {
-    background-color: white;
-    margin: 0px;
-    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
     font-family: Arial, sans-serif;
+    color: #333;
 }
 
 .container {
@@ -10,29 +10,32 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {
     margin-top: 20px;
     margin-bottom: 20px;
-    color: black;
+    color: red;
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #007bff;
     padding-bottom: 10px;
     display: inline-block;
 }
 
 p {
-    font-size: 1.5rem;
-    color: #333;
-    width: 100%;
-    line-height: 1.8;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
     text-align: center;
     margin-top: 20px;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
+    background-color: #fff;
+
 }
 
 ul {
@@ -47,7 +50,6 @@ li {
 .background {
     background-image: url('https://images.pexels.com/photos/167682/pexels-photo-167682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
     height: 70vh;
     display: flex;
@@ -57,4 +59,67 @@ li {
     color: white;
     width: 100%;
     padding-top: 80px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.info-text {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

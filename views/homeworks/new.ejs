@@ -1,18 +1,24 @@
 <%- include('../partials/head') %>
-    <div class="container">
-        <h1>Add a new Home Work </h1>
-        <form action="/users/<%= user._id %>/homeworks" method="POST">
-
+<div class="container">
+    <h1>Add New Homework</h1>
+    <form action="/users/<%= user._id %>/homeworks" method="POST" class="form-container">
+        <div class="form-group">
             <label for="courseCode">Course Code:</label>
-            <input type="text" name="courseCode" required>
-
-            <label for="dueDate">dueDate: </label>
-            <input type="date" name="dueDate" required>
-            <label for="notes">Additional notes</label>
-            <input type="text" name="notes">
-            <label for="completed">completed:</label>
+            <input type="text" name="courseCode" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="dueDate">Due Date:</label>
+            <input type="date" name="dueDate" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="notes">Additional Notes:</label>
+            <input type="text" name="notes" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="completed">Completed:</label>
             <input type="checkbox" name="completed" value="true">
-            <button type="submit" class="btn btn-primary">Add Food</button>
-        </form>
-    </div>
-    <%- include('../partials/footer') %>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Homework</button>
+    </form>
+</div>
+<%- include('../partials/footer') %>

@@ -11,7 +11,7 @@ const path = require('path')
 const isSignedIn = require('./middleware/is-signed-in')
 const passUserToView = require('./middleware/pass-user-to-view')
 
-const port = process.env.PORT ? process.env.PORT : '3100'
+const port = process.env.PORT ? process.env.PORT : '3000'
 
 // creates a connection to MONGO database
 mongoose.connect(process.env.MONGODB_URI)

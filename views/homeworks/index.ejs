@@ -1,34 +1,26 @@
 <%- include('../partials/head') %>
     <div class="container mt-4">
         <h1>Welcome to Homeworks</h1>
-
         <a href="/users/<%= user._id %>/homeworks/new" class="btn btn-primary mb-3">Add New Homework</a>
-
-        <div class="row d-flex justify-content-start">
+        <div class="row">
             <% homeworks.forEach(homework=> { %>
-                <div class="col-12 col-md-4 mb-4 d-flex justify-content-center">
+                <div class="col-12 col-md-4 mb-4">
                     <div class="card homework-card">
                         <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                             class="card-img-top" alt="homework photo">
-
                         <div class="card-body">
                             <h5 class="card-title text-primary fw-bold">
                                 <%= homework.courseCode %>
                             </h5>
-
-                            <p class="card-text">
-                                <strong>Due Date:</strong>
+                            <p class="card-text"><strong>Due Date:</strong>
                                 <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
                             </p>
-                            <p class="card-text">
-                                <strong>Notes:</strong>
+                            <p class="card-text"><strong>Notes:</strong>
                                 <%= homework.notes %>
                             </p>
-                            <p class="card-text">
-                                <strong>Status:</strong>
+                            <p class="card-text"><strong>Status:</strong>
                                 <%= homework.completed ? "✅ Completed" : "❌ Incomplete" %>
                             </p>
-
                             <a href="/users/<%= user._id %>/homeworks/<%= homework._id %>"
                                 class="btn btn-info btn-sm">Show More</a>
                         </div>

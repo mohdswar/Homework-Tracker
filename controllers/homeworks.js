@@ -4,12 +4,12 @@ const User = require('../models/user.js');
 
 const home = async (req, res) => {
     const user = await User.findById(req.params.userId);
-    res.render('homeworks/index.ejs', { title: 'My App', homeworks: user.homeworks })
+    res.render('homeworks/index.ejs', { title: 'home page', homeworks: user.homeworks })
 }
 
 const newHomework = async (req, res) => {
     const user = await User.findById(req.params.userId);
-    res.render('homeworks/new.ejs', { title: 'My App' })
+    res.render('homeworks/new.ejs', { title: 'Add New homework' })
 }
 
 const createHomework = async (req, res) => {
@@ -30,7 +30,7 @@ const showHomework = async (req, res) => {
         const user = await User.findById(req.params.userId);
         const homework = user.homeworks.id(req.params.homeworkId);
         const homeworkOwner = await User.findById(homework.user);
-        res.render('homeworks/show.ejs', { title: 'My App', homework, owner: homeworkOwner })
+        res.render('homeworks/show.ejs', { title: 'Show Homework', homework, owner: homeworkOwner })
     } catch (error) {
         console.log(error);
         res.redirect('/');
@@ -53,7 +53,7 @@ const editHomework = async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         const homework = user.homeworks.id(req.params.homeworkId);
-        res.render('homeworks/edit.ejs', { title: 'My App', homework })
+        res.render('homeworks/edit.ejs', { title: 'Edit this homework', homework })
     } catch (error) {
         console.log(error);
         res.redirect('/');
