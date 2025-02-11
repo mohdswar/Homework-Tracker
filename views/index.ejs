@@ -1,9 +1,21 @@
 <%- include('partials/head') %>
 
-    <% if (user) { %>
-        <h1>Welcome to the App <%= user.username %>!</h1>
-    <% } else { %>
-        <h1>Welcome to the App guest.</h1>
-    <% } %>
+    <div class="background d-flex align-items-center justify-content-center text-white text-center">
+        <div>
+            <% if (user) { %>
+                <h1 class="fw-bold">Welcome to the App, <%= user.username %>!</h1>
+                <% } else { %>
+                    <h1 class="fw-bold">Welcome to the App, Guest.</h1>
+                    <% } %>
+        </div>
+    </div>
 
-<%- include('partials/footer') %>
+    <div class="info-text">
+        <p>
+            This is a simple app to track your homeworks and assignments.
+            Our small community allows students and doctors to collaborate—
+            doctors can publish assignments, students can view and track their progress.
+        </p>
+    </div>
+
+    <%- include('partials/footer') %>

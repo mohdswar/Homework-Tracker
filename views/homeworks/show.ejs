@@ -1,33 +1,31 @@
 <%- include('../partials/head') %>
     <div class="container mt-4">
-        <div class="card mx-auto shadow-lg" style="max-width: 800px;">
-            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                class="card-img-top" alt="homework photo" style="max-height: 400px; object-fit: cover;">
+        <div class="card mx-auto" style="max-width: 600px;">
+            <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                class="card-img-top" alt="homework photo">
             <div class="card-body">
                 <h4 class="card-title text-primary fw-bold">
                     <%= homework.courseCode %>
                 </h4>
-
-
-                <p class="card-text">Due Date: <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
+                <p class="card-text">
+                    <strong>Due Date:</strong>
+                    <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
                 </p>
-                <p class="card-text">Additional notes: <%= homework.notes %>
+                <p class="card-text">
+                    <strong>Additional Notes:</strong>
+                    <%= homework.notes %>
                 </p>
-
-                <p class="card-text">Is it done?:
-                    <%= homework.completed ? "✅ Completed" : "❌" %>
+                <p class="card-text">
+                    <strong>Status:</strong>
+                    <%= homework.completed ? "✅ Completed" : "❌ Incomplete" %>
                 </p>
-                <p class="text-muted">Listed by: <%= owner.username || 'Unknown' %>
+                <p class="text-muted">
+                    <strong>Listed by:</strong>
+                    <%= owner.username || 'Unknown' %>
                 </p>
-
-
-
-
-
-
 
                 <div class="d-flex gap-2 mb-3">
-                    <a href="/users/<%= user._id %>/homeworks" class="btn btn-outline-primary">Back to homeworks</a>
+                    <a href="/users/<%= user._id %>/homeworks" class="btn btn-outline-primary">Back to Homeworks</a>
                     <% if (homework.user._id.equals(user._id)) { %>
                         <form action="/users/<%= user._id %>/homeworks/<%= homework._id %>?_method=DELETE" method="POST"
                             class="d-inline">
@@ -37,8 +35,6 @@
                             class="btn btn-warning">Edit</a>
                         <% } %>
                 </div>
-
-
             </div>
         </div>
     </div>

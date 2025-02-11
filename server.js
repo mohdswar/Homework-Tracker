@@ -1,6 +1,4 @@
 require('dotenv').config()
-// const dotenv = require('dotenv')
-// dotenv.config()
 const express = require('express')
 const app = express()
 const session = require('express-session')
@@ -47,8 +45,7 @@ app.use(passUserToView)
 const pagesCtrl = require('./controllers/pages')
 const authCtrl = require('./controllers/auth')
 const homeworksCtrl = require('./controllers/homeworks')
-
-
+const usersCtrl = require('./controllers/users')
 
 
 // ROUTE HANDLERS
@@ -58,6 +55,9 @@ app.post('/auth/sign-up', authCtrl.addUser)
 app.get('/auth/sign-in', authCtrl.signInForm)
 app.post('/auth/sign-in', authCtrl.signIn)
 app.get('/auth/sign-out', authCtrl.signOut)
+app.get('/users', usersCtrl.index)
+app.get('/users/:userId', usersCtrl.show)
+
 app.use(isSignedIn);
 app.get('/users/:userId/homeworks', homeworksCtrl.home)
 app.get('/users/:userId/homeworks/new', homeworksCtrl.newHomework)
@@ -66,6 +66,7 @@ app.get('/users/:userId/homeworks/:homeworkId', homeworksCtrl.showHomework)
 app.delete('/users/:userId/homeworks/:homeworkId', homeworksCtrl.deleteHomework)
 app.get('/users/:userId/homeworks/:homeworkId/edit', homeworksCtrl.editHomework);
 app.put('/users/:userId/homeworks/:homeworkId', homeworksCtrl.updateHomework);
+
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}`)
 })

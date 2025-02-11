@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">
+            <%= user.username %>'s Homeworks
+        </h1>
+
+        <ul class="list-group">
+            <% user.homeworks.forEach(homework=> { %>
+                <li class="list-group-item">
+                    <h4 class="text-primary">
+                        <%= homework.courseCode %>
+                    </h4>
+                    <p><strong>Due Date:</strong>
+                        <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
+                    </p>
+                    <% if (homework.notes) { %>
+                        <p><strong>Notes:</strong>
+                            <%= homework.notes %>
+                        </p>
+                        <% } %>
+                            <p>
+                                <strong>Status:</strong>
+                                <% if (homework.completed) { %>
+                                    <span class="text-success"> Done</span>
+                                    <% } else { %>
+                                        <span class="text-danger"> Not Completed</span>
+                                        <% } %>
+                            </p>
+                </li>
+                <% }) %>
+        </ul>
+
+        <a href="/users" class="btn btn-secondary mt-3">Back to Community</a>
+    </div>
+
+    <%- include('../partials/footer') %>
