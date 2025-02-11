@@ -1,35 +1,40 @@
 <%- include('../partials/head') %>
-    <div class="container">
-        <h1>welcome to Home works</h1>
-        <a href="/users/<%= user._id %>/homeworks/new" class="btn btn-primary mb-3">
-            Add New Homework
-        </a>
-        <ul class="list-group w-50">
+    <div class="container mt-4">
+        <h1>Welcome to Homeworks</h1>
+
+        <a href="/users/<%= user._id %>/homeworks/new" class="btn btn-primary mb-3">Add New Homework</a>
+
+        <div class="row d-flex justify-content-start">
             <% homeworks.forEach(homework=> { %>
+                <div class="col-12 col-md-4 mb-4 d-flex justify-content-center">
+                    <div class="card homework-card">
+                        <img src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            class="card-img-top" alt="homework photo">
 
-                <a href="/users/<%= user._id %>/homeworks/<%= homework._id %>" class="card-link">Show
-                    more</a>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary fw-bold">
+                                <%= homework.courseCode %>
+                            </h5>
 
-                <li class="list-group-item">
-                    <strong>Course Code</strong>
-                    <%= homework.courseCode %>
-                </li>
-                <li class="list-group-item">
-                    <strong>Expiry Date:</strong>
-                    <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
-                </li>
+                            <p class="card-text">
+                                <strong>Due Date:</strong>
+                                <%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>
+                            </p>
+                            <p class="card-text">
+                                <strong>Notes:</strong>
+                                <%= homework.notes %>
+                            </p>
+                            <p class="card-text">
+                                <strong>Status:</strong>
+                                <%= homework.completed ? "✅ Completed" : "❌ Incomplete" %>
+                            </p>
 
-                <li class="list-group-item">
-                    <strong>additional notes</strong>
-                    <%= homework.notes %>
-                </li>
-
-                <li class="list-group-item">
-                    <strong>Mark as Done:</strong>
-                    <%= homework.completed ? "Yes" : " No" %>
-                </li>
+                            <a href="/users/<%= user._id %>/homeworks/<%= homework._id %>"
+                                class="btn btn-info btn-sm">Show More</a>
+                        </div>
+                    </div>
+                </div>
                 <% }) %>
-        </ul>
-
+        </div>
     </div>
     <%- include('../partials/footer') %>
