@@ -61,6 +61,11 @@ li {
     padding-top: 80px;
 }
 
+.background div {
+    margin-top: 140px;
+
+}
+
 .card {
     border: none;
     border-radius: 10px;
