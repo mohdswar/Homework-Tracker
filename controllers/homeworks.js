@@ -52,6 +52,9 @@ const editHomework = async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         const homework = user.homeworks.id(req.params.homeworkId);
+    
+    
+        console.log(homework)
         res.render('homeworks/edit.ejs', { title: 'Edit this homework', homework })
     } catch (error) {
         console.log(error);
@@ -63,6 +66,11 @@ const updateHomework = async (req, res) => {
 
     try {
         const user = await User.findById(req.params.userId);
+        if (req.body.completed === "on") {
+            req.body.completed = true;
+        } else {
+            req.body.completed = false;
+        }
         const homework = user.homeworks.id(req.params.homeworkId);
         homework.set(req.body);
         await user.save();

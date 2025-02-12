@@ -1,25 +1,26 @@
 <%- include('../partials/head') %>
-<div class="container">
-    <h1>Edit Homework</h1>
-    <form action="/users/<%= user._id %>/homeworks/<%= homework._id %>?_method=PUT" method="POST" class="form-container">
-        <div class="form-group">
-            <label for="courseCode">Course Code:</label>
-            <input type="text" name="courseCode" class="form-control" required value="<%= homework.courseCode %>">
-        </div>
-        <div class="form-group">
-            <label for="dueDate">Due Date:</label>
-            <input type="date" name="dueDate" class="form-control" required value="<%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>">
-        </div>
-        <div class="form-group">
-            <label for="notes">Additional Notes:</label>
-            <input type="text" name="notes" class="form-control" value="<%= homework.notes %>">
-        </div>
-        <div class="form-group">
-            <label for="completed">Completed:</label>
-            <input type="checkbox" name="completed" value="true" <%= homework.completed ? 'checked' : '' %>>
-            <input type="hidden" name="completed" value="false">
-        </div>
-        <button type="submit" class="btn btn-primary">Update Homework</button>
-    </form>
-</div>
-<%- include('../partials/footer') %>
+    <div class="container">
+        <h1>Edit Homework</h1>
+        <form action="/users/<%= user._id %>/homeworks/<%= homework._id %>?_method=PUT" method="POST"
+            class="form-container">
+            <div class="form-group">
+                <label for="courseCode">Course Code:</label>
+                <input type="text" name="courseCode" class="form-control" required value="<%= homework.courseCode %>">
+            </div>
+            <div class="form-group">
+                <label for="dueDate">Due Date:</label>
+                <input type="date" name="dueDate" class="form-control" required
+                    value="<%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>">
+            </div>
+            <div class="form-group">
+                <label for="notes">Additional Notes:</label>
+                <input type="text" name="notes" class="form-control" value="<%= homework.notes %>">
+            </div>
+            <div class="form-group">
+                <label for="completed">Completed:</label>
+                <input type="checkbox" name="completed" <% if (homework.completed) { %>checked<% } %> >
+            </div>
+            <button type="submit" class="btn btn-primary">Update Homework</button>
+        </form>
+    </div>
+    <%- include('../partials/footer') %>
