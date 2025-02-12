@@ -10,8 +10,9 @@
             <div class="form-group">
                 <label for="dueDate">Due Date:</label>
                 <input type="date" name="dueDate" class="form-control" required
-                    value="<%= new Date(homework.dueDate).toLocaleDateString('en-GB') %>">
+                    value="<%= homework.dueDate.toISOString().slice(0, 10) %>">
             </div>
+
             <div class="form-group">
                 <label for="notes">Additional Notes:</label>
                 <input type="text" name="notes" class="form-control" value="<%= homework.notes %>">
