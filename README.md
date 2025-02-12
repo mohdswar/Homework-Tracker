@@ -34,11 +34,18 @@ Homework Tracker is a simple yet powerful project designed to help students easi
 ---
 
 ## Technologies Used
+
+- **Node.js** – Server-side runtime environment.
+- **Express.js** – Web framework for handling routes and middleware.
+- **MongoDB** – Stores homework data efficiently.
+- **Mongoose** – ODM library for MongoDB.
 - **JavaScript** – Handles functionality and interactivity.
 - **HTML & CSS** – Structures and styles the application.
 - **EJS (Embedded JavaScript)** – Renders dynamic content.
 - **Bootstrap** – Enhances the UI with responsive design.
-- **MongoDB** – Stores homework data efficiently.
+
+
+
 
 ---
 
