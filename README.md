@@ -50,7 +50,7 @@ Check out the user stories, tasks, and planning details on Trello:
 
 ## Try It Out
 You can test the deployed version of the Homework Tracker here:
-[Homework Tracker (Live Demo)]()
+[Homework Tracker (Live Demo)](https://homework-tracker-65c3f9421a5e.herokuapp.com/)
 
 ---
 
